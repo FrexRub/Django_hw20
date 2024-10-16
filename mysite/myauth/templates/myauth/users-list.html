@@ -1,0 +1,30 @@
+{% extends 'myauth/base.html' %}
+
+{% block title %}
+  Users list
+{% endblock %}
+
+{% block body %}
+  <h1>Users:</h1>
+  <div>
+    {% for user in users %}
+      <div>
+        <p>Username: <a href="{% url 'myauth:user_details' pk=user.pk%}">{{ user.username }}</a></p>
+      </div>
+    {% endfor %}
+  </div>
+
+    <div class="mb-2">
+        <a href="{% url 'home' %}">Bake to start page</a>
+    </div>
+
+<!--  {% if perms.shopapp.add_product %}-->
+<!--    <div>-->
+<!--      <a href="{% url 'shopapp:product_create' %}">Create a product</a>-->
+<!--    </div>-->
+<!--  {% endif %}-->
+<!--  <div>-->
+<!--    <p></p>-->
+<!--    <a href="{% url 'shopapp:index' %}">Back to index shop list</a>-->
+<!--  </div>-->
+{% endblock %}

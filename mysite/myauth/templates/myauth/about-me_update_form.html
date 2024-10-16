@@ -1,0 +1,28 @@
+{% extends 'myauth/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+  About me
+{% endblock %}
+
+
+{% block body %}
+  <div class="container">
+      <h2>Update info about <i>{{ user_name }}</i> </h2>
+  </div>
+
+  {% if user.is_authenticated %}
+  <div class="container">
+    <div class="card mb-3 border-0 nth-shadow">
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ user_form | crispy }}
+        {{ form | crispy}}
+        <button type="submit" class="btn btn-primary py-2">Update</button>
+      </form>
+    </div>
+  </div>
+  {% else %}
+    <h2>User is anonymous</h2>
+  {% endif %}
+{% endblock %}

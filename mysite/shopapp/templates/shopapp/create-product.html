@@ -1,0 +1,26 @@
+{% extends "shopapp/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Create product
+{% endblock %}
+
+{% block body %}
+<div>
+    <h3 class="mb-1">Form create product</h3>
+</div>
+<div class="col-4">
+    <form method="post">
+        {% csrf_token %}
+        {{ form | crispy }}
+
+        <button type="submit" class="btn btn-primary py-2">Submit</button>
+    </form>
+</div>
+
+<div class="mb-3">
+    <a href="{% url 'shopapp:products_list' %}">Back to product list</a>
+</div>
+
+{% endblock %}
+

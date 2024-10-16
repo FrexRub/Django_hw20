@@ -1,0 +1,17 @@
+{% extends 'myauth/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+  Register
+{% endblock %}
+
+{% block body %}
+  <h1>Register</h1>
+  <div class="col-md-4 my-auto">
+    <form method="post">
+      {% csrf_token %}
+      {{ form | crispy }}
+      <input type="submit" class="btn btn-primary py-2" value="Register">
+    </form>
+  </div>
+{% endblock %}

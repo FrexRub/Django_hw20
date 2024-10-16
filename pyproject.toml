@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "prod"
+version = "0.1.0"
+description = ""
+authors = ["SRubtsov <frexrub@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^5.1.2"
+crispy-bootstrap5 = "^2024.10"
+django-crispy-forms = "^2.3"
+django-debug-toolbar = "^4.4.6"
+django-filter = "^24.3"
+djangorestframework = "^3.15.2"
+drf-spectacular = "^0.27.2"
+gunicorn = "^23.0.0"
+pillow = "^11.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

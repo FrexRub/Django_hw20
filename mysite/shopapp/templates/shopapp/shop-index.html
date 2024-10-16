@@ -1,0 +1,30 @@
+{% extends 'shopapp/base.html' %}
+
+{% block title %}
+  Shop Index
+{% endblock %}
+
+
+{% block body %}
+  <h2 class="fw-light">Shop Index!</h2>
+
+  <div>
+    <ul>
+      <li class="mb-2">
+        <a href="{% url 'shopapp:products_list' %}">Products</a>
+      </li>
+      <li>
+        <a href="{% url 'shopapp:orders_list' %}">Orders</a>
+      </li>
+       {% if user.is_authenticated %}
+          <li>
+            <a href="{% url 'shopapp:user_orders_list' user_id=request.user.pk%}">Orders by user</a>
+          </li>
+      {% endif %}
+    </ul>
+  </div>
+  <div>
+    <a href="{% url 'home' %}">Home page</a>
+  </div>
+
+{% endblock %}

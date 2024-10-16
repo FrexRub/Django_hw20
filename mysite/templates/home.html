@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+    {% if user.is_authenticated %}
+        <h1 class="h3 mb-3 fw-normal">
+            Hi {{ user.username }}!
+        </h1>
+    <form action="{% url 'myauth:logout' %}" method="post">
+        {% csrf_token %}
+        <div class="d-grid gap-2 d-md-block mt-2 mb-3">
+            <button type="submit" class="btn btn-primary py-2">Log Out</button>
+        </div>
+    </form>
+    {% else %}
+        <h3>You are not logged in</h3>
+        <p class="mb-1">
+            <a href="{% url 'myauth:login' %}">Log In</a>
+        </p>
+    {% endif %}
+    <div class="mb-2">
+        <a href="{% url 'myauth:register' %}">Register</a>
+    </div>
+    <div class="mb-2">
+        <a href="{% url 'myauth:list_user' %}">List users</a>
+    </div>
+    <div class="mb-2">
+        <a href="{% url 'shopapp:index' %}">Shop index</a>
+    </div>
+{% endblock %}
