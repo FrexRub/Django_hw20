@@ -4,7 +4,7 @@ ENV PYTHONBUFFERED=1
 
 WORKDIR /app
 
-RUN pip install --upgrade pip "poetry=1.8.4"
+RUN pip install --upgrade pip "poetry==1.8.4"
 
 RUN poetry config virtualenvs.create false --local
 COPY pyproject.toml poetry.lock ./
